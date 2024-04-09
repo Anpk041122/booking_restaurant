@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name">booking_restaurant</string>
 
+    <string name="app_name">booking_restaurant</string>
+    <string name="nav_title">Booking Restaurant</string>
+
+    <string name="title_admin">Trang Admin</string>
+    <string name="admin_user">Quản lý người dùng</string>
+    <string name="admin_category">Quản lý danh mục nhà hàng</string>
+    <string name="admin_table">Quản lý bàn ăn</string>
+    <string name="admin_bill">Quản lý đơn</string>
+    <string name="admin_logout">Đăng xuất</string>
 
 </resources>

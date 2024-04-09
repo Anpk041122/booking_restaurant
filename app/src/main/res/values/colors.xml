@@ -9,6 +9,8 @@
     <color name="textColorPrimary">#121315</color>
     <color name="textColorSecondary">#6D6E70</color>
     <color name="textColorAccent">#A7A9AB</color>
+    <color name="customBlue">#3399FF</color>
+    <color name="customColor">#fefefe</color>
 
     <color name="dividerColor">#BDBDBD</color>
     <color name="transparent">#00000000</color>

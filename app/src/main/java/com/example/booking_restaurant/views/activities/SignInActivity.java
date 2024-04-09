@@ -43,7 +43,7 @@ public class SignInActivity extends AppCompatActivity {
         userRepo = new UserRepository();
 
         mAuth = FirebaseAuth.getInstance();
-//        CheckUserLogin();
+        CheckUserLogin();
         btnSignIn(btn_sign_in);
         btnSignUp(btn_sign_up_form);
 
@@ -93,7 +93,7 @@ public class SignInActivity extends AppCompatActivity {
     private void CheckUserLogin(){
         mUser = mAuth.getCurrentUser();
         if(mUser != null){
-            SaveCurrentUser();
+//            SaveCurrentUser();
             CheckUserRole(mUser.getUid());
         }
 

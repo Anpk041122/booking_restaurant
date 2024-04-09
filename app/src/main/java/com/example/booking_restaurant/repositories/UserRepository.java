@@ -7,13 +7,11 @@ import androidx.annotation.NonNull;
 import com.example.booking_restaurant.models.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.concurrent.CompletableFuture;
 
 public class UserRepository extends BaseRepository {
     private static final String TAG = "UserRepository";
@@ -49,7 +47,7 @@ public class UserRepository extends BaseRepository {
                     if(task.isSuccessful()) {
 
                         QuerySnapshot querySnapshot = task.getResult();
-                        if(querySnapshot.getDocuments() != null || !querySnapshot.isEmpty()) {
+                        if(querySnapshot != null && !querySnapshot.isEmpty()) { // Sửa điều kiện kiểm tra null ở đây
 
                             String userRole;
 
