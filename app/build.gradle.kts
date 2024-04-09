@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.booking_restaurant"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -40,8 +40,6 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
-    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
-    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

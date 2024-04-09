@@ -26,4 +26,3 @@ firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
-googleService = { id = "com.google.gms.google-services", version.ref = "googleServices"}
