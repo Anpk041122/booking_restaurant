@@ -2,6 +2,7 @@ package com.example.booking_restaurant.views.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,7 +32,6 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         mAuth = FirebaseAuth.getInstance();
-        userRepo = new UserRepository();
 
         edt_email = this.findViewById(R.id.edt_email);
         edt_password = this.findViewById(R.id.edt_password);
@@ -64,6 +64,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void SignUp(String email, String password) {
+        userRepo = new UserRepository();
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -75,8 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                             Toast.makeText(SignUpActivity.this, "Đăng ký thành công.!",
                                     Toast.LENGTH_SHORT).show();
 
-                            mAuth.signOut();
-                            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                            startActivity(new Intent(SignUpActivity.this, MainActivity.class));
                             finish();
 
                         } else {
@@ -88,6 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void AddUser(Task<AuthResult> task){
+
         String uid = task.getResult().getUser().getUid().toString();
         String email = task.getResult().getUser().getEmail();
 

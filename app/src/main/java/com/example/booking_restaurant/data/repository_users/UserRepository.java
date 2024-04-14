@@ -32,21 +32,14 @@ public class UserRepository extends BaseRepository {
 
 
     public void AddUser(UserViewModel user){
+        coRef.add(user).addOnCompleteListener(task -> {
+           if(task.isSuccessful()) {
+               Log.i(TAG, task.getResult().getId().toString());
+           } else {
+               Log.e(TAG, task.getResult().toString());
 
-        db.collection("user").add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
-
+           }
+        });
     }
 
     public Task<Boolean> checkExistsAsync(String email) {
