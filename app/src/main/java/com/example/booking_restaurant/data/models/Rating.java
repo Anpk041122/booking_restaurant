@@ -1,4 +1,4 @@
-package com.example.booking_restaurant.models;
+package com.example.booking_restaurant.data.models;
 
 public class Rating {
     private String userId;

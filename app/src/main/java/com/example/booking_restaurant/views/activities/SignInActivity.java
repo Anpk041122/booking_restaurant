@@ -12,10 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.booking_restaurant.R;
-import com.example.booking_restaurant.models.UserSingleton;
-import com.example.booking_restaurant.repositories.BaseRepository;
-import com.example.booking_restaurant.repositories.UserRepository;
+import com.example.booking_restaurant.data.models.UserSingleton;
+import com.example.booking_restaurant.data.repository_users.BaseRepository;
+import com.example.booking_restaurant.data.repository_users.UserRepository;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,31 +73,44 @@ public class SignInActivity extends AppCompatActivity {
         String email = edt_email.getText().toString().trim();
         String password = edt_password.getText().toString().trim();
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(SignInActivity.this, "Đăng nhập thành công.!",
-                                    Toast.LENGTH_SHORT).show();
-                            String uid = task.getResult().getUser().getUid().toString().trim();
-//                            SaveCurrentUser();
-                            CheckUserRole(uid);
-                        } else {
-                            Toast.makeText(SignInActivity.this, "Tài khoản hoặc mật khẩu không đúng.!",
-                                    Toast.LENGTH_SHORT).show();
-                        }
+        userRepo.checkExistsAsync(email).addOnCompleteListener(new OnCompleteListener<Boolean>() {
+            @Override
+            public void onComplete(@NonNull Task<Boolean> task) {
+                if(task.isSuccessful()){
+
+                    boolean exists = task.getResult();
+
+                    if(exists){
+                        mAuth.signInWithEmailAndPassword(email, password)
+                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(SignInActivity.this, "Đăng nhập thành công.!",
+                                                    Toast.LENGTH_SHORT).show();
+                                            String uid = task.getResult().getUser().getUid().toString().trim();
+                                            CheckUserRole(uid);
+                                        } else {
+                                            Toast.makeText(SignInActivity.this, "Tài khoản hoặc mật khẩu không đúng.!",
+                                                    Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    } else {
+                        Toast.makeText(SignInActivity.this, "Taì khoản của bạn đã bị vô hiệu hóa.!", Toast.LENGTH_SHORT).show();
                     }
-                });
+
+                }
+            }
+        });
+
     }
 
     private void CheckUserLogin(){
         mUser = mAuth.getCurrentUser();
         if(mUser != null){
-//            SaveCurrentUser();
             CheckUserRole(mUser.getUid());
         }
-
     }
 
     private void CheckUserRole(String uid){
@@ -105,10 +119,12 @@ public class SignInActivity extends AppCompatActivity {
             public void onDataFetched(String role) {
                 switch (role) {
                     case "user":
+                        SaveCurrentUser(uid, role);
                         startActivity(new Intent(SignInActivity.this, MainActivity.class));
                         finish();
                         break;
                     case "admin":
+                        SaveCurrentUser(uid, role);
                         startActivity(new Intent(SignInActivity.this, AdminActivity.class));
                         finish();
                         break;
@@ -118,8 +134,14 @@ public class SignInActivity extends AppCompatActivity {
 
     }
 
-    private void SaveCurrentUser() {
-        mUser = mAuth.getCurrentUser();
+    private void SaveCurrentUser(String uid, String role) {
+        if(uid != null){
+            UserSingleton.getInstance().setUserID(uid);
+            UserSingleton.getInstance().setRole(role);
+        }
+        else{
+            Log.e(TAG, "Fail save user id.!");
+        }
     }
 
 

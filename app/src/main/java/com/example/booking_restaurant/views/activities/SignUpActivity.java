@@ -7,20 +7,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.booking_restaurant.R;
-import com.example.booking_restaurant.repositories.UserRepository;
+import com.example.booking_restaurant.data.repository_users.UserRepository;
+import com.example.booking_restaurant.viewmodels.UserViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -73,18 +69,38 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            String uid;
-                            uid = task.getResult().getUser().getUid().toString();
-                            userRepo.AddUser(uid, "user");
 
-                            Toast.makeText(SignUpActivity.this, uid + " ",
+                            AddUser(task);
+
+                            Toast.makeText(SignUpActivity.this, "Đăng ký thành công.!",
                                     Toast.LENGTH_SHORT).show();
+
+                            mAuth.signOut();
+                            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+                            finish();
+
                         } else {
-                            Toast.makeText(SignUpActivity.this, "Đăng ký thất bại.!",
+                            Toast.makeText(SignUpActivity.this, "Tài khoản đã tồn tại.!",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+    }
+
+    public void AddUser(Task<AuthResult> task){
+        String uid = task.getResult().getUser().getUid().toString();
+        String email = task.getResult().getUser().getEmail();
+
+        int index = email.indexOf("@gmail.com");
+
+        String name = email.substring(0, index);
+
+        UserViewModel user = new UserViewModel(uid, name, email, "user", true);
+
+        userRepo.AddUser(user);
+
+        edt_email.setText(null);
+        edt_password.setText(null);
     }
 
 }

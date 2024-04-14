@@ -18,6 +18,19 @@
                 app:showAsAction="ifRoom" />
 
             <item
+                android:id="@+id/navRestaurantAdmin"
+                android:checkable="true"
+                android:icon="@drawable/restaurant_icon"
+                android:title="@string/admin_restaurant"
+                app:showAsAction="ifRoom" />
+            <item
+                android:id="@+id/navRegionAdmin"
+                android:checkable="true"
+                android:icon="@drawable/region_icon"
+                android:title="@string/admin_region"
+                app:showAsAction="ifRoom" />
+
+            <item
                 android:id="@+id/navCategoryAdmin"
                 android:checkable="true"
                 android:icon="@drawable/category_icon"

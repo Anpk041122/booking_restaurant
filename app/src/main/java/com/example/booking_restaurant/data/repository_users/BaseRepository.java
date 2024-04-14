@@ -1,4 +1,4 @@
-package com.example.booking_restaurant.repositories;
+package com.example.booking_restaurant.data.repository_users;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;

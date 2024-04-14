@@ -16,9 +16,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
     }
 }
 
 rootProject.name = "booking_restaurant"
 include(":app")
- 
+include(":booking__restaurant_admin")

@@ -1,9 +1,9 @@
-package com.example.booking_restaurant.models;
+package com.example.booking_restaurant.data.models;
 
 public class UserSingleton {
     private static UserSingleton instance;
     private String userID;
-    private String userName;
+    private String role;
 
     private UserSingleton() {
         // Private constructor to prevent instantiation from other classes
@@ -24,11 +24,11 @@ public class UserSingleton {
         this.userID = userID;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getRole() {
+        return role;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setRole(String role) {
+        this.role = role;
     }
 }

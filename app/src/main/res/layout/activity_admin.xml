@@ -30,6 +30,7 @@
                 app:buttonGravity="center_vertical"
                 app:navigationIcon="@drawable/top_app_bar_menu"
                 >
+
             </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.AppBarLayout>

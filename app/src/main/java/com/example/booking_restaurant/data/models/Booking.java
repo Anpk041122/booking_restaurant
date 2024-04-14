@@ -1,4 +1,4 @@
-package com.example.booking_restaurant.models;
+package com.example.booking_restaurant.data.models;
 
 
 import java.util.Date;
