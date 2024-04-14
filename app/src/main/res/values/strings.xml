@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">booking_restaurant</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="booking_restaurant_app">Booking Restaurant App</string>
+    <string name="cate_res_name">Cate_Res_Name</string>
+    <string name="_10_00_22_00">10:00 - 22:00</string>
 
 
 </resources>

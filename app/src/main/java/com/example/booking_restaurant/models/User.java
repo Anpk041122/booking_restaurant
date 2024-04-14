@@ -1,30 +1,15 @@
 package com.example.booking_restaurant.models;
 
 public class User {
-    private String phone;
-    private String userName;
+
+    private String userId;
     private String role;
-    public User(String phone, String userName, String role) {
-        this.setPhone(phone);
-        this.setUserName(userName);
+    public User(String userId, String role) {
+        this.setUserId(userId);
         this.setRole(role);
     }
 
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 
     public String getRole() {
         return role;
@@ -32,5 +17,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

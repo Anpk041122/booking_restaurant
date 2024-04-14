@@ -1,7 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menuHome" android:title="Home" android:icon="@drawable/image_logo"/>
-    <item android:id="@+id/menuCategory" android:title="Category" android:icon="@drawable/image_logo"/>
-    <item android:id="@+id/placehoder" android:title=""/>
-    <item android:id="@+id/menuInvoice" android:title="Invoice" android:icon="@drawable/image_logo"/>
-    <item android:id="@+id/menuAccount" android:title="Account" android:icon="@drawable/image_logo"/>
-</menu>

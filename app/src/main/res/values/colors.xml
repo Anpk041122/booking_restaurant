@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="mediumGray">#71716F</color>
     <color name="colorPrimary">#596DFC</color>
     <color name="colorPrimaryDark">#596DFC</color>
     <color name="colorAccent">#596DFC</color>
@@ -22,7 +24,10 @@
     <color name="yellow">#FF9800</color>
     <color name="blue">#2196F3</color>
 
+    <color name="brown">#8A675E</color>
+
     <color name="bottomTabActive">#F24040</color>
     <color name="bottomTabInActive">#171717</color>
     <color name="black_overlay">#667C7474</color>
+    <color name="gray">#808080</color>
 </resources>
