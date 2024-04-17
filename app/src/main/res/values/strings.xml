@@ -1,6 +1,10 @@
 <resources>
+    <string name="booking_restaurant_app">Booking Restaurant App</string>
+    <string name="cate_res_name">Cate_Res_Name</string>
+    <string name="_10_00_22_00">10:00 - 22:00</string>
 
     <string name="app_name">booking_restaurant</string>
+
     <string name="nav_title">Booking Restaurant</string>
 
     <string name="title_admin">Trang Admin</string>

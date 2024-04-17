@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,12 +20,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.w3c.dom.Text;
+
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText edt_email;
     private EditText edt_password;
     private Button btn_sign_up;
-    private Button btn_sign_in_form;
+    private TextView btn_sign_in_form;
     private UserRepository userRepo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
         ButtonSignUp(btn_sign_up);
         btnSignIn(btn_sign_in_form);
     }
-    private void btnSignIn(Button btn_sign_in_form){
+    private void btnSignIn(TextView btn_sign_in_form){
         btn_sign_in_form.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

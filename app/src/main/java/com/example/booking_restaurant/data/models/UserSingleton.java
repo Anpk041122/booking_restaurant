@@ -23,12 +23,11 @@ public class UserSingleton {
     public void setUserID(String userID) {
         this.userID = userID;
     }
-
-    public String getRole() {
+ public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
-    }
+ }
 }

@@ -70,6 +70,6 @@ public class ListRegionResAdapter extends RecyclerView.Adapter<ListRegionResAdap
     }
 
     public interface ReadClickListener {
-        void onReadClick(String uuid);
+        void onReadClick(String idRestaurant);
     }
 }

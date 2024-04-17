@@ -5,13 +5,11 @@ public class Region {
     private String uuid;
     private String name;
     private String idRestaurant;
-    private String restaurantName;
 
-    public Region(String uuid, String name, String idRestaurant, String restaurantName){
+    public Region(String uuid, String name, String idRestaurant){
         this.setUuid(uuid);
         this.setName(name);
         this.setIdRestaurant(idRestaurant);
-        this.setRestaurantName(restaurantName);
     }
     public Region(){}
 
@@ -37,13 +35,5 @@ public class Region {
 
     public void setIdRestaurant(String idRestaurant) {
         this.idRestaurant = idRestaurant;
-    }
-
-    public String getRestaurantName() {
-        return restaurantName;
-    }
-
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
     }
 }

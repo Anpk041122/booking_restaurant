@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,7 +29,7 @@ public class SignInActivity extends AppCompatActivity {
     private EditText edt_email;
     private EditText edt_password;
     private Button btn_sign_in;
-    private Button btn_sign_up_form;
+    private TextView btn_sign_up_form;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private UserRepository userRepo;
@@ -49,7 +50,7 @@ public class SignInActivity extends AppCompatActivity {
         btnSignUp(btn_sign_up_form);
 
     }
-    private void btnSignUp(Button btn_sign_up_form){
+    private void btnSignUp(TextView btn_sign_up_form){
         btn_sign_up_form.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
