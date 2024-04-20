@@ -1,34 +1,61 @@
 package com.example.booking_restaurant.data.models;
 
 public class Table {
-    private String price;
-    private String floorId;
-    private String typeId;
+    private String uuid;
+    private String name;
+    private String categoryId;
+    private String regionId;
     private boolean status;
 
-    public Table(String price, String floorId, String typeId, boolean status){
-        this.setFloorId(floorId);
-        this.setPrice(price);
-        this.setTypeId(typeId);
+    public Table(String uuid, String name, String categoryId, String regionId, boolean status){
+        this.setUuid(uuid);
+        this.setName(name);
+        this.setCategoryId(categoryId);
+        this.setRegionId(regionId);
         this.setStatus(status);
     }
 
-    public String getPrice() {
-        return price;
+    public Table(String uuid, String name, String categoryId, String regionId){
+        this.setUuid(uuid);
+        this.setName(name);
+        this.setCategoryId(categoryId);
+        this.setRegionId(regionId);
+        this.setStatus(false);
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public Table(){}
+
+    public String getUuid() {
+        return uuid;
     }
 
-    public String getFloorId() {
-        return floorId;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
-    public void setFloorId(String floorId) {
-        this.floorId = floorId;
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public String getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(String regionId) {
+        this.regionId = regionId;
+    }
 
     public boolean isStatus() {
         return status;
@@ -36,13 +63,5 @@ public class Table {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public String getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(String typeId) {
-        this.typeId = typeId;
     }
 }

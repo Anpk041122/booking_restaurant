@@ -2,6 +2,7 @@ package com.example.booking_restaurant.views.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -62,16 +63,14 @@ public class AdminActivity extends AppCompatActivity {
         topAppBar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
                 navigationView.setVisibility(View.VISIBLE);
             }
         });
+
         setFragmentInit();
         handleCloseNavigation();
         setListenerItemNavigation();
     }
-
-
 
     private void setFragmentInit(){
         handleUserAdminFragment();
@@ -91,7 +90,7 @@ public class AdminActivity extends AppCompatActivity {
     private void handleCategoryAdminFragment() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        CatergoryAdminFragment frag = CatergoryAdminFragment.newInstance(userId, role);
+        CatergoryAdminFragment frag = CatergoryAdminFragment.newInstance();
 
         fragmentTransaction.replace(R.id.fragmentContainerAdmin, frag);
         fragmentTransaction.addToBackStack("category_admin_fragment");
@@ -101,7 +100,7 @@ public class AdminActivity extends AppCompatActivity {
     private void handleTableAdminFragment() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        TableAdminFragment frag = TableAdminFragment.newInstance(userId, role);
+        TableAdminFragment frag = TableAdminFragment.newInstance();
 
         fragmentTransaction.replace(R.id.fragmentContainerAdmin, frag);
         fragmentTransaction.addToBackStack("table_admin_fragment");

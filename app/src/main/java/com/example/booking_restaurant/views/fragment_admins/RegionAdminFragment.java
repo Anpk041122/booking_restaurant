@@ -6,19 +6,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
+
 import com.example.booking_restaurant.R;
 import com.example.booking_restaurant.data.models.Region;
 import com.example.booking_restaurant.data.models.Restaurant;
@@ -28,13 +24,11 @@ import com.example.booking_restaurant.data.repository_admins.RestaurantAdminRepo
 import com.example.booking_restaurant.utilities.GenID;
 import com.example.booking_restaurant.views.adapter_admins.ListRegionAdapter;
 import com.example.booking_restaurant.views.adapter_admins.ListRegionResAdapter;
-import com.example.booking_restaurant.views.adapter_admins.SpinnerAdapter;
+import com.example.booking_restaurant.views.adapter_admins.SpinnerResAdapter;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
@@ -202,10 +196,10 @@ public class RegionAdminFragment extends Fragment {
     }
 
     private void setSpinner(View view){
-        SpinnerAdapter spinnerAdapter = new SpinnerAdapter(getActivity().getApplicationContext(), _res);
-        spinner1.setAdapter(spinnerAdapter);
-        spinnerAdapter.setDropDownResource(android.R.layout.select_dialog_singlechoice);
-        spinnerAdapter.setClickSpinnerListener(new SpinnerAdapter.ClickSpinnerListener() {
+        SpinnerResAdapter spinnerResAdapter = new SpinnerResAdapter(getActivity().getApplicationContext(), _res);
+        spinner1.setAdapter(spinnerResAdapter);
+        spinnerResAdapter.setDropDownResource(android.R.layout.select_dialog_singlechoice);
+        spinnerResAdapter.setClickSpinnerListener(new SpinnerResAdapter.ClickSpinnerListener() {
             @Override
             public void onClickSpinner(String uid, String name) {
                 Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT).show();

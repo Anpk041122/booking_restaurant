@@ -32,7 +32,7 @@ public class RegionAdminRepository extends BaseAdminRepository{
 
         query.get().addOnCompleteListener(task -> {
             if(task.isSuccessful()){
-               List<Region> _region = new ArrayList<>();
+                List<Region> _region = new ArrayList<>();
                 for (QueryDocumentSnapshot document : task.getResult()) {
                     _region.add(document.toObject(Region.class));
                     Log.i(TAG, document.toObject(Region.class).toString());

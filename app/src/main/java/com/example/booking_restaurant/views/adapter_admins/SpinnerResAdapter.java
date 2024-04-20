@@ -7,14 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.booking_restaurant.R;
 import com.example.booking_restaurant.data.models.Restaurant;
 
 import java.util.List;
 
-public class SpinnerAdapter extends BaseAdapter {
+public class SpinnerResAdapter extends BaseAdapter {
     Context context;
     List<Restaurant>  res;
     LayoutInflater inflter;
@@ -30,7 +29,7 @@ public class SpinnerAdapter extends BaseAdapter {
         this.dropdownResource = dropdownResource;
     }
 
-    public SpinnerAdapter(Context applicationContext, List<Restaurant>  res) {
+    public SpinnerResAdapter(Context applicationContext, List<Restaurant>  res) {
         this.context = applicationContext;
         this.res = res;
         inflter = (LayoutInflater.from(applicationContext));
@@ -69,6 +68,7 @@ public class SpinnerAdapter extends BaseAdapter {
         view.setPivotX(14);
         return view;
     }
+
 
     public interface ClickSpinnerListener {
         void onClickSpinner(String uuid, String name);
